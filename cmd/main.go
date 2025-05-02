@@ -4,9 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/Staspnm/telegrambot/internal/adapters/storage"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	_ "github.com/lib/pq"
+
+	"github.com/Staspnm/telegrambot/internal/adapters/storage"
 )
 
 func CheckError(err error) {
@@ -18,6 +19,7 @@ func CheckError(err error) {
 func main() {
 
 	db := postgres.New()
+	defer db.Close()
 
 	usrs, err := db.GetUser()
 

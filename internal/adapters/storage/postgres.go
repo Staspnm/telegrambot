@@ -3,7 +3,6 @@ package postgres
 import (
 	"database/sql"
 	"fmt"
-
 	"log"
 	"time"
 )
@@ -28,7 +27,7 @@ type Storage struct {
 
 func New() *Storage {
 	host := "localhost"
-	port := 5000
+	port := 5012
 	user := "postgres"
 	password := "fu2xo4q"
 	dbname := "postgres"
@@ -39,7 +38,7 @@ func New() *Storage {
 	db, err := sql.Open("postgres", psqlconn)
 	CheckError(err)
 	// закрыть базу данных
-	defer db.Close()
+	// defer db.Close() // Здесь нельзя закрывать базу тк сразу на выходе из этой функции коннект к бд закроется
 	// проверить подключение
 	err = db.Ping()
 	CheckError(err)
@@ -88,4 +87,8 @@ func (st *Storage) GetUser() ([]*UserBD, error) {
 	}
 
 	return usrs, nil
+}
+
+func (st *Storage) Close() {
+	st.db.Close()
 }
