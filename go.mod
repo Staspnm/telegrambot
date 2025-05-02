@@ -1,13 +1,14 @@
-module telegrambotgithub.com/Staspnm/telegrambot
+module github.com/Staspnm/telegrambot
 
 go 1.20
 
 require (
-	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1 // indirect
-	github.com/jackc/pgpassfile v1.0.0 // indirect
-	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
-	github.com/jackc/pgx/v5 v5.7.2 // indirect
-	github.com/lib/pq v1.10.9 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
+	github.com/lib/pq v1.10.9
+)
+
+require (
+	github.com/Masterminds/squirrel v1.5.4 // indirect
+	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0 // indirect
+	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
 )
